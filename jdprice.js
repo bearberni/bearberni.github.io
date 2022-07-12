@@ -16,7 +16,7 @@ const $ = new Env('京东价格保护');
 !(async () => {
     if ($request && $request.method == 'POST' && $request.url.match(/siteppM_priceskusPull/)) {
         const body = $request.body
-        let data = JSON.parse(decodeURIComponent(body).slice(5))
+        let data = decodeURIComponent(body)
         $.msg(data)
         let token = data.token
         let old = $.getdata('jd_tokens')
